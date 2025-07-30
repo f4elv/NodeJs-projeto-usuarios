@@ -13,4 +13,5 @@ model Usuario {
   nome    String
   idade   Int
   senha   String
+  role    String @default("user")
 }

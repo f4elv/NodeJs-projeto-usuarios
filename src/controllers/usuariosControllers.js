@@ -41,7 +41,7 @@ export const login = async (req, res) => {
             return res.status(401).json({ error: 'Senha incorreta' });
         }
 
-        const token = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: usuario.id, role: usuario.role }, process.env.JWT_SECRET, {
             expiresIn: '2h', // Expira em 2 horas
         });
 
@@ -59,5 +59,19 @@ export const listarUsuarios = async (req, res) => {
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ error: 'Erro ao listar usuários' });
+    }
+}
+
+export const deletarUsuario = async (req, res) => {
+    const { id } = req.body;
+
+    try {
+        const usuario = await prisma.usuario.delete({
+            where: { id: Number(id) },
+        });
+        res.status(200).json({ message: 'Usuário deletado com sucesso', usuario });
+    } catch (error) {
+        console.error('Erro ao deletar usuário:', error);
+        res.status(500).json({ error: 'Erro ao deletar usuário' });
     }
 }
