@@ -1,4 +1,4 @@
-import express, { json } from 'express';
+import express from 'express';
 import usuariosroutes from './routes/usuariosRoute.js';
 import logger from './middlewears/logger.js';
 import dotenv  from 'dotenv';

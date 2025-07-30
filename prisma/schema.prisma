@@ -14,4 +14,15 @@ model Usuario {
   idade   Int
   senha   String
   role    String @default("user")
+
+  refreshToken RefreshToken[]
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  criadoEm DateTime @default(now())
+  expiraEm DateTime 
 }
