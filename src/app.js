@@ -15,7 +15,4 @@ app.get('/', (req, res) => {
     res.send('Bem vindo a API de Usuários');
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+export default app; // Exportando a instância do app para ser usada no servidor principal

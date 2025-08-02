@@ -39,7 +39,7 @@ export const login = async (req, res) => {
 
         const senhaValida = await bcrypt.compare(senha, usuario.senha);
         if (!senhaValida) {
-            return res.status(401).json({ error: 'Senha incorreta' });
+            return res.status(401).json({ error: 'Email ou senha inválidas' });
         }
 
         // variável de ambiente para o segredo do JWT

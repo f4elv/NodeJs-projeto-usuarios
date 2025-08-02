@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/app.js"
-  },
+  "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js" 
+ },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,5 +18,10 @@
     "jsonwebtoken": "^9.0.2",
     "prisma": "^6.12.0",
     "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.0.5",
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
   }
 }
